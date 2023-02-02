@@ -13,7 +13,7 @@ const DetailTodos = () => {
     }, []);
 
     async function deleteTodo(){
-        const isSuccess = await axios.delete(`http://localhost:5000/todos/${id}`, {data : {logType : "delete"}});
+        const isSuccess = await axios.delete(`http://localhost:5000/todos/delete/${id}`, {data : {logType : "delete"}});
         if(!isSuccess){
             return alert("Data Gagal dihapus");
         }

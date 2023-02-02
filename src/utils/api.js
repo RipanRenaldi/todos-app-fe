@@ -3,7 +3,7 @@ export const addTodo = async (data)=>{
     if(!data.name || !data.description){
         return alert("Name and Description is Required");
     }
-    await axios.post("http://localhost:5000/todos",data);
+    await axios.post("http://localhost:5000/todos/create",data);
     return 1;
 }
 export const editTodo = async(data)=>{
@@ -11,7 +11,7 @@ export const editTodo = async(data)=>{
      if(logType !== "update"){
         return alert("Routing key isn't correct");
      }
-     await axios.put(`http://localhost:5000/todos/${id}`, {name, description, date, logType});
+     await axios.put(`http://localhost:5000/todos/update/${id}`, {name, description, date, logType});
      return 1;
 }
 
@@ -22,7 +22,7 @@ export const getAllTodo = async()=>{
 }
 
 export const getTodoById = async(id)=>{
-    const respon = await axios.get(`http://localhost:4000/todos/${id}`);
+    const respon = await axios.get(`http://localhost:4000/todos/search/${id}`);
     const {todo} = respon.data;
     return todo;
 }
